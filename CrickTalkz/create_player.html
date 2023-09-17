@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <h2>Create Player</h2>
+    <form method="POST" action="{{ url_for('create_player') }}">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="runs">Runs:</label>
+        <input type="number" id="runs" name="runs" required>
+        <label for="wickets">Wickets:</label>
+        <input type="number" id="wickets" name="wickets" required>
+        <button type="submit">Create</button>
+    </form>
+</section>
+{% endblock %}

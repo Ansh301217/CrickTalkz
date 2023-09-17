@@ -1,0 +1,33 @@
+# Import relevant Web3.py and contract setup from your app.py
+from web3 import Web3, HTTPProvider
+
+# Initialize Web3 and contract
+
+@app.route("/create_player", methods=["GET", "POST"])
+def create_player():
+    if request.method == "POST":
+        name = request.form["name"]
+        runs = int(request.form["runs"])
+        wickets = int(request.form["wickets"])
+
+        # Perform blockchain interaction here
+        # Use Web3.py to call the contract function to create a new player
+        # contract.functions.addPlayer(name, runs, wickets).transact()
+
+        flash(f"Player {name} created successfully!", "success")
+        return redirect(url_for("index"))
+
+    return render_template("create_player.html")
+# Import necessary modules and create a SQLAlchemy database
+
+from flask_sqlalchemy import SQLAlchemy
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///your_database.db'
+db = SQLAlchemy(app)
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
+
+# Perform database operations as needed, such as user registration and login

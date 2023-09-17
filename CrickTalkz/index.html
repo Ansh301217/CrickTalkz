@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <h2>Player List</h2>
+    <ul>
+        {% for player in players %}
+            <li>{{ player.name }} - Runs: {{ player.runs }}, Wickets: {{ player.wickets }}</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}
